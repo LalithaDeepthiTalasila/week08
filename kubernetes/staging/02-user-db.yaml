@@ -1,18 +1,5 @@
 # kubernetes/staging/02-user-db.yaml
 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: user-db-pvc
-  namespace: staging
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -85,8 +72,7 @@ spec:
 
       volumes:
         - name: user-db-storage
-          persistentVolumeClaim:
-            claimName: user-db-pvc
+          emptyDir: {}
 
 ---
 apiVersion: v1
