@@ -102,4 +102,4 @@ def health_check() -> dict[str, str]:
     return {
         "status": "healthy",
         "service": "student-service",
-    }
+    }# redeployed for Task 9.1P monitoring setup
